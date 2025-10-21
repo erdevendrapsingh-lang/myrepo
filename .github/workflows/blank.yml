@@ -1,0 +1,12 @@
+# Loop through the Psi values and execute the command with each value
+for (( i=$START_PSI; i<=$END_PSI; i++ ))
+do
+  # Set the Psi value for this iteration
+  PSI="+393534310$i"
+
+  # Set the command with the current Psi value
+  COMMAND="cmcli INS MI2CFX1/MI2CFX1DU/21.8/Ns6oV7V0 ims/cscf/icscf System.PsiRoute 'Host=misccasntas.mnc053.mcc222.3gppnetwork.org:5090 Psi=sip:$PSI@ims.mnc053.mcc222.3gppnetwork.org Type=PSI_USER Priority=1'"
+
+  # Execute the command
+  $COMMAND
+done
