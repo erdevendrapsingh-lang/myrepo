@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Exit immediately if a command fails
+set -e
+
+echo "🚀 Starting deployment process..."
+
+# Step 1: Print current branch
+echo "Current branch: $(git branch --show-current)"
+
+# Step 2: Run Terraform commands as an example
+echo "Initializing Terraform..."
+terraform init -input=false
+
+echo "Validating Terraform configuration..."
+terraform validate
+
+echo "Planning Terraform changes..."
+terraform plan -out=tfplan
+
+echo "Applying Terraform plan..."
+terraform apply -auto-approve tfplan
+
+# Step 3: Post deployment message
+echo "✅ Deployment completed successfully!"
