@@ -5,4 +5,7 @@ steps:
       - -c
       - |
         echo "Hello from GCP Cloud Build"
-        echo "Build is running inside GCP"
+        echo "Pipeline is running inside GCP"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
